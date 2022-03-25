@@ -1,0 +1,4 @@
+[submodule "esystemsec/stockTI"]
+	path = esystemsec/stockTI
+	url = git@github.com:esystemsec/stockTI.git
+	branch = main
