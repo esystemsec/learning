@@ -2,3 +2,8 @@
 	path = esystemsec/stockTI
 	url = git@github.com:esystemsec/stockTI.git
 	branch = main
+
+[submodule "OCA/stock-logistics-warehouse"]
+	path = OCA/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
+	branch = 15.0
