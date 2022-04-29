@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="invetorytic.device.module_category_device" model="ir.module.category">
+        <field name="name">invetorytic</field>
+        <field name="description"> Ayuda a gestion de dispositivos </field>
+        <field name="sequence"> 100</field>
+    </record>
+</odoo>
