@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo>
+    <record id="invetorytic.device_resport" model="invetorytic.device">
+        <field name="name">Informe de lista de dispositivos</field>
+        <field name="model">invetorytic.device</field>
+        <field name="report_type">gweb-pdf</field>
+        <field name="report_name">invetorytic.device_report_view</field>
+        <field name="report_file">invetorytic.device_report</field>
+        <field name="binding_model_id" ref="model_invetorytic_device"></field>
+        <field name="binding_type"></field>
+    </record>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_invetorytic_device,invetorytic.device,model_invetorytic_device,base.group_user,1,1,1,1
+access_invetorytic_maintenance,invetorytic.maintenance,model_invetorytic_maintenance,base.group_user,1,1,1,1

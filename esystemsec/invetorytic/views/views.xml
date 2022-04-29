@@ -1,0 +1,127 @@
+<odoo>
+  <data>
+
+    <!-- View  List activos -->
+    <record model="ir.ui.view" id="invetorytic.device_list_view">
+      <field name="name">invetorytic.device.view.tree</field>
+      <field name="model">invetorytic.device</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="model" />
+          <field name="state" />
+          <field name="add" />
+          <field name="description" />
+          <field name="value" />
+        </tree>
+      </field>
+    </record>
+    <!-- View Form activos -->
+    <record model="ir.ui.view" id="invetorytic.device_form_view">
+      <field name="name">invetorytic.device.view.form</field>
+      <field name="model">invetorytic.device</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de Inventario">
+          <sheet>
+            <div class="oe_title">
+
+              <h1>
+                <field name="model" placeholder="Modelo" />
+              </h1>
+            </div>
+            <group>
+              <group>
+                <field name="state" />
+                <field name="add" />
+                <field name="description" />
+                <field name="value" />
+              </group>
+              <group>
+                <separator string="Separator" />
+                <field name="maintenance_ids" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- View search activos -->
+    <record model="ir.ui.view" id="invetorytic.device_search_view">
+      <field name="name">invetorytic.device.view.search</field>
+      <field name="model">invetorytic.device</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="model" />
+          <filter name="state" string="Dispositivo Activo" domain="[('state','=','Activo')]" />
+          <group>
+            <filter name="group_by_state" string="Dispositivos-Activos" context="{'group_by':'state'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- View mantenimientos -->
+    <record model="ir.ui.view" id="invetorytic.maintenance_list_view">
+      <field name="name">invetorytic.maintenance.view.tree</field>
+      <field name="model">invetorytic.maintenance</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name='date' />
+          <field name='type' />
+          <field name='cost' />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="invetorytic.maintenance_form_view">
+      <field name="name">invetorytic.maintenance.view.form</field>
+      <field name="model">invetorytic.maintenance</field>
+      <field name="arch" type="xml">
+        <form string="Ficha de mantenimiento">
+          <sheet>
+
+            <group>
+              <group>
+                <separator string="Separator" />
+                <field name='date' />
+                <field name='type' />
+                <field name='cost' />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Calendario de Mantenimiento-->
+
+    <record model="ir.ui.view" id="invetorytic.maintenance_Calendar_view">
+      <field name="name">invetorytic.maintenance.view.calendar</field>
+      <field name="model">invetorytic.maintenance</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario-Mantenimientos" date_start="date" color="type" mode="month">
+          <field name='type' />
+          <field name='cost' />
+        </calendar>
+      </field>
+    </record>
+
+    <!-- Acciones de menu -->
+    <record model="ir.actions.act_window" id="invetorytic.device_action_window">
+      <field name="name">Activos</field>
+      <field name="res_model">invetorytic.device</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="invetorytic.maintenance_action_window">
+      <field name="name">Mantenimientos</field>
+      <field name="res_model">invetorytic.maintenance</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="context">{'search_default_group_by_tipo':False}</field>
+    </record>
+    <!-- Top menu item -->
+    <menuitem name="Inventario" id="invetorytic.menu_root" />
+    <!-- menu categories -->
+    <menuitem name="Activos" id="invetorytic.device_menu" parent="invetorytic.menu_root" action="invetorytic.device_action_window" />
+    <menuitem name="Mantenimientos" id="invetorytic.maintenance_menu" parent="invetorytic.menu_root" action="invetorytic.maintenance_action_window" />
+  </data>
+</odoo>
